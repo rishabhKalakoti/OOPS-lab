@@ -1,0 +1,27 @@
+Object Oriented Programming and Design: Review of abstraction, objects
+and other basics, Encapsulation, Information hiding, method, Signature,
+Classes and Instances, Polymorphism and inheritance.
+C++ Programming Basics: Fundamentals, variables and assignments,
+Input and Output, Data types and expressions, flow of control,
+subprograms, top-down design, predefined functions, user defined
+functions, procedural abstractions, local variables, overloading function
+names, operator overloading, parameter passing, this pointer, destructors,
+copy constructor, overloading the assignment operator, virtual functions,
+function calling functions, friend functions, recursive functions, recursive
+member functions. Static member function.
+C++ Object oriented concepts: Objects and classes, use of file for I/O,
+formatting output with stream functions, Character I/O, inheritance,
+structures for diverse data, structures as function arguments, initializing
+structures, defining classes and member functions, public and private
+members, constructors for initialization, standard C++ classes, derived
+classes, flow of control, use of Boolean expressions, multiway branches,
+use and design of loops. Friend function and friend class.
+C++ Data structures and Advanced Topics: Arrays – programming with
+arrays, arrays of classes, arrays as function arguments, strings,
+Multidimensional arrays, Arrays of strings, pointers Dynamic arrays,
+Classes and dynamic arrays, Base classes, access control, Templates-
+generic classes and functions, namespaces. Standard Template Library.
+
+1. Balaguruswamy: Object-oriented Programming with C++.
+2. Robert Lafore: C++ Programming
+3. Ashok N. Kamthane : Object Oriented with C++, Pearson Education
