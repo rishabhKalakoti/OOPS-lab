@@ -1,8 +1,8 @@
 # input
-print("Input read and imaginary part of first complex no: (a + ib)")
+print("Input real and imaginary part of first complex no: (a + ib)")
 a=float(input())
 b=float(input())
-print("Input read and imaginary part of second complex no: (c + id)")
+print("Input real and imaginary part of second complex no: (c + id)")
 c=float(input())
 d=float(input())
 
@@ -15,5 +15,3 @@ print((a*c-b*d)," + (",a*d+b*c,")i")
 print("Division")
 m=c*c+d*d
 print((a*c+b*d)/m," + (",(b*c-a*d)/m,")i")
-
-

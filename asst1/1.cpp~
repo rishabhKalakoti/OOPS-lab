@@ -12,7 +12,7 @@ class Data{
 			this->month=3;
 			this->year=1993;
 		}
-		Data(int day, int month=10, int year=2000){
+		Data(int day=12, int month=10, int year=2000){
 			this->day=day;
 			this->month=month;
 			this->year=year;
