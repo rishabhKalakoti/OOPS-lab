@@ -21,12 +21,12 @@ def evalx(n2,op,n1):
 	exit()
 	
 def solve(exp):
-	# print(exp)
+	print(exp)
 	valStack = list()
 	opStack = list()
 	for token in exp:
 		if token.isnumeric()==True:
-			valStack.append(int(token))
+			valStack.append(float(token))
 		else:
 			if token == '(':
 				opStack.append(token)

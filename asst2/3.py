@@ -14,6 +14,7 @@ class Player:
 		self.avg = self.total/len(self.runs)
 	def __lt__(self, other):
 		return self.total<other.total
+
 if __name__ == "__main__":
 	team = list()
 	team.append(Player("Dhoni "))

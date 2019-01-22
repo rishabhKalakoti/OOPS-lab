@@ -10,11 +10,11 @@ string getTxt(enum status ch)
 {
 	switch(ch)
 	{
-		case 0:
+		case Unanswered:
 			return "Unanswered";
-		case 1:
+		case Correct:
 			return "Correct";
-		case 2:
+		case Wrong:
 			return "Wrong";
 	}
 }
