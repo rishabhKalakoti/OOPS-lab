@@ -3,7 +3,7 @@ class Product:
 		self.pId = pId
 		self.name = name
 		self.catId = catId
-		self.price =price
+		self.price = price
 		
 class ElectricalProduct(Product):
 	def __init__(self,pId,name,catId,price,voltRange,wattage):

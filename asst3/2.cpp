@@ -27,7 +27,8 @@ int main()
 	int bal, amt;
 	amt = 100;
 	bal = 500;
-	printf("New Balance: %d\n", b1.deposit(amt, bal));
+	bal= b1.deposit(amt, bal)
+	printf("New Balance: %d\n", bal);
 	int x = b1.withdraw(amt, bal);
 	if(x!=0)
 		printf("New balance: %d\n", x);
