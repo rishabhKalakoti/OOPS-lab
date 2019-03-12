@@ -15,7 +15,7 @@ class Gen extends Thread
 		{
 			try
 			{
-				for(int i=2;i<num;i++)
+				for(int i=1;i<num;i++)
 				{
 					if(num%i==0)
 						sum+=i;
@@ -60,7 +60,7 @@ class AmicableNumber
 		Gen csb = new Gen(b);
 		csa.start();
 		csb.start();
-		if(csa.getSum() == csb.getSum())
+		if(csa.getSum() == b && csb.getSum() == a)
 		{
 			System.out.println("Amicable numbers.");
 		}

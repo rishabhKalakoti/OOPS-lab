@@ -3,7 +3,7 @@
 #include<mutex>
 #include <unistd.h>
 #include <stdlib.h>
-//g++ -std=c++11 account.cpp -lpthread
+//g++ -std=c++11 2.cpp -lpthread
 
 using namespace std;
 int balance=600;

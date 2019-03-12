@@ -2,51 +2,107 @@ import java.util.Random;
 class Father extends Thread
 {
 	Random rand = new Random();
+	Object Lock=null;
+	Father(Object Lock)
+	{
+		this.Lock=Lock;
+	}	
 	public void run()
 	{
 		while(true)
 		{
-			deposit();
+			try
+			{
+				deposit();	
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e)
+			{
+				;
+			}
 		}
 	}
-	public synchronized void deposit()
-	{
-		while(Account.balance <= 2000)
+	public void deposit()
+	{	
+		synchronized(this.Lock)
 		{
-			int r = rand.nextInt(200);
-			Account.balance += r;
-			System.out.println("Father deposited Rs " + r + ". New Balance is Rs " + Account.balance + ".");
+			this.Lock.notifyAll();
+			try
+			{
+				this.Lock.wait();
+				while(Account.balance <= 2000)
+				{
+					int r = rand.nextInt(200);
+					Account.balance += r;
+					System.out.println("Father deposited Rs " + r + ". New Balance is Rs " + Account.balance + ".");
+				}
+				this.Lock.notifyAll();
+			}
+			catch(InterruptedException e)
+			{
+				;
+			}
+			this.Lock.notifyAll();
 		}
 	}
 }
 class Son extends Thread
 {
 	Random rand = new Random();
+	Object Lock = null;	
+	Son(Object Lock)
+	{
+		this.Lock=Lock;
+	}
 	public void run()
 	{
 		while(true)
 		{
-			withdraw();	
+			
+			try
+			{
+				withdraw();	
+				Thread.sleep(100);
+			}
+			catch(InterruptedException e)
+			{
+				;
+			}
 		}
 	}
-	public synchronized void withdraw()
+	public void withdraw()
 	{
-		
-		while(Account.balance >= 500)
-		{
-			int r = rand.nextInt(150);
-			Account.balance -= r;
-			System.out.println("Son withdrawed Rs " + r + ". New Balance is Rs " + Account.balance + ".");
+		synchronized(this.Lock)
+		{	
+			this.Lock.notifyAll();
+			try
+			{
+				this.Lock.wait();
+				while(Account.balance >= 500)
+				{
+					int r = rand.nextInt(150);
+					Account.balance -= r;
+					System.out.println("Son withdrawed Rs " + r + ". New Balance is Rs " + Account.balance + ".");
+				}
+				this.Lock.notifyAll();
+			}
+			catch(InterruptedException e)
+			{
+				;
+			}
+			this.Lock.notifyAll();
 		}
+		
 	}
 }
 class Bank
 {
 	public static void main(String[] args)
-	{
+	{	
+		Object Lock = new Object();
 		//public int balance = 600;
-		Father f = new Father();
-		Son s = new Son();
+		Father f = new Father(Lock);
+		Son s = new Son(Lock);
 		f.start();
 		s.start();
 	}

@@ -1,4 +1,4 @@
-import threading
+from threading import Thread, Lock
 import time
 
 first=0
@@ -25,16 +25,17 @@ def f2(lock):
 
 if __name__ == "__main__":
 	#global first,second
-	lock=threading.Lock()
-	first=int(input("Enter first number:"))
-	second=int(input("Enter second number:"))
-	t1=threading.Thread(target=f1, args=(lock,),name="CSA")
-	t2=threading.Thread(target=f2, args=(lock,),name="CSB")
+	lock = Lock()
+	first = int(input("Enter first number:"))
+	second = int(input("Enter second number:"))
+	t1 = Thread(target=f1, args=(lock,),name="CSA")
+	t2 = Thread(target=f2, args=(lock,),name="CSB")
 	t1.start()
 	t2.start()
 	t1.join()
 	t2.join()
-	if(first==s2 and second==s1):
+	
+	if(first == s2 and second == s1):
 		print("Numbers are amicable")
 	else:
 		print("Numbers are not amicable")
