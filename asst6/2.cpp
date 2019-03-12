@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 #include<pthread.h>
 #include<mutex>
+#include <unistd.h>
+#include <stdlib.h>
 //g++ -std=c++11 account.cpp -lpthread
 
 using namespace std;
@@ -11,16 +13,17 @@ void * father(void *args)
 	while(1)
 	{
 		m.lock();
-		while(bal<=2000)
+		if(balance<=2000)
 		{
 			int x=rand()%200+1;
 			balance+=x;
-			cout<<"Amout deposited by father :"<<x<<"\n";
+			cout<<"Amount deposited by father :"<<x<<"\n";
 			cout<<"New balance :"<<balance<<"\n";
-			sleep(1);
 		}
 		m.unlock();
+		sleep(1);
 	}
+		
 }
 void *son(void *args)
 {
@@ -28,15 +31,15 @@ void *son(void *args)
 	while(1)
 	{
 		m.lock();
-		while(bal>=500)
+		if(balance>=500)
 		{
 			int x=rand()%150+1;
-			bal-=x;
-			cout<<"amout withdraw by son :"<<x<<"\n";
-			cout<<"acc balance :"<<balance<<"\n";
-			sleep(1);
+			balance-=x;
+			cout<<"Amount withdraw by son :"<<x<<"\n";
+			cout<<"New balance :"<<balance<<"\n";
 		}
 		m.unlock();
+		sleep(1);	
 	}
 }
 
