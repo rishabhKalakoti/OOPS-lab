@@ -11,7 +11,7 @@ class Father extends Thread
 	}
 	public synchronized void deposit()
 	{
-		if(Account.balance <= 2000)
+		while(Account.balance <= 2000)
 		{
 			int r = rand.nextInt(200);
 			Account.balance += r;
@@ -32,7 +32,7 @@ class Son extends Thread
 	public synchronized void withdraw()
 	{
 		
-		if(Account.balance >= 500)
+		while(Account.balance >= 500)
 		{
 			int r = rand.nextInt(150);
 			Account.balance -= r;

@@ -13,7 +13,7 @@ void * father(void *args)
 	while(1)
 	{
 		m.lock();
-		if(balance<=2000)
+		while(balance<=2000)
 		{
 			int x=rand()%200+1;
 			balance+=x;
@@ -31,7 +31,7 @@ void *son(void *args)
 	while(1)
 	{
 		m.lock();
-		if(balance>=500)
+		while(balance>=500)
 		{
 			int x=rand()%150+1;
 			balance-=x;
